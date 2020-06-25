@@ -1,0 +1,81 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %} Users {% endblock %}
+
+{% block body %}
+    {% include 'admin/_common/_filtering_form_view.html.twig' with {'filteringForm': usersFilterForm, 'createUrl' : path('admin_users_create')} %}
+
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title pull-left">Users</h4>
+            <h5 class="cart-title pull-right">Total count: {{ pager.nbResults }}</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        First name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Roles
+                    </th>
+                    <th>
+                        Created at
+                    </th>
+                    <th>
+                        Updated at
+                    </th>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>
+                                {{ user.id }}
+                            </td>
+                            <td>
+                                {{ user.firstName }}
+                            </td>
+                            <td>
+                                {{ user.lastName }}
+                            </td>
+                            <td>
+                                {{ user.email }}
+                            </td>
+                            <td>
+                                <ul class="pull-left">
+                                    {% for role in user.roles %}
+                                        <li>{{ role }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                {{ user.createdAt.format('d.m.Y. H:i:s') }}
+                            </td>
+                            <td>
+                                {{ user.updatedAt.format('d.m.Y. H:i:s')}}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_users_update', {'id': user.id}) }}"><i class="material-icons">edit</i></a>
+                            </td>
+                            <td>
+                                <a href="#" data-href="{{ path('admin_users_delete', {'id': user.id}) }}" data-toggle="modal" data-target="#confirm-delete"><i class="material-icons">close</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% include 'admin/_common/_pager.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>Our Recommendation</h3>
+                <p class="mb-4">If you want to see our recommendations for cars, check out our collection of top-ranked car and find your perfect car for new adventures!</p>
+                <p>
+                    <a href="#" class="btn btn-primary custom-prev">Previous</a>
+                    <span class="mx-2">/</span>
+                    <a href="#" class="btn btn-primary custom-next">Next</a>
+                </p>
+            </div>
+            <div class="col-lg-9">
+                <div class="nonloop-block-13 owl-carousel">
+                    {% for car in featuredCars %}
+                        {% include 'front/_partials/_boxes/featured_car.html.twig' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

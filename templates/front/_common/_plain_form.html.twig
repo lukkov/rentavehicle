@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+        {{ form_start(form) }}
+            <div class="box app-box">
+                <div class="box-header with-border hide-empty">{% block form_header -%}{%- endblock form_header %}</div>
+
+                <div class="box-body">
+                    {{ form_errors(form) }}
+                    {{ form_rest(form) }}
+                </div>
+                <div class="box-footer">
+                    {% if not form.vars.disabled %}
+                        <button type="submit" class="btn btn-primary">{{ customSubmitLabel is defined ? customSubmitLabel : 'Submit' }}</button>
+                    {% endif %}
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</div>

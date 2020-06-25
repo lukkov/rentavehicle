@@ -1,0 +1,86 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %} Salons {% endblock %}
+
+{% block body %}
+    {% include 'admin/_common/_filtering_form_view.html.twig' with {'filteringForm': salonsFilterForm, 'createUrl' : path('admin_salons_create')} %}
+
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title pull-left">Salons</h4>
+            <h5 class="cart-title pull-right">Total count: {{ pager.nbResults }}</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Created at
+                    </th>
+                    <th>
+                        Updated at
+                    </th>
+                    </thead>
+                    <tbody>
+                    {% for salon in salons %}
+                        <tr>
+                            <td>
+                                {{ salon.id }}
+                            </td>
+                            <td>
+                                {{ salon.owner.firstName }} {{ salon.owner.lastName }}
+                            </td>
+                            <td>
+                                {{ salon.name }}
+                            </td>
+                            <td>
+                                {{ salon.city.name }}
+                            </td>
+                            <td>
+                                {{ salon.address }}
+                            </td>
+                            <td>
+                                <img src="{{ upload_asset(salon.image.name) | imagine_filter('salon_thumb_100_100') }}" />
+                            </td>
+                            <td>
+                                {{ salon.createdAt.format('d.m.Y. H:i:s') }}
+                            </td>
+                            <td>
+                                {{ salon.updatedAt.format('d.m.Y. H:i:s')}}
+                            </td>
+                            <td>
+                                <a href="{{ path('salons_show', {'id': salon.id}) }}" target="_blank"><i class="material-icons">open_in_browser</i></a>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_salons_update', {'id': salon.id}) }}"><i class="material-icons">edit</i></a>
+                            </td>
+                            <td>
+                                <a href="#" data-href="{{ path('admin_salons_delete', {'id': salon.id}) }}" data-toggle="modal" data-target="#confirm-delete"><i class="material-icons">close</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% include 'admin/_common/_pager.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

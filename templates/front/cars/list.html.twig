@@ -1,0 +1,21 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block title %} Cars {% endblock %}
+
+{% block body %}
+    {% include 'front/_common/_filtering_form_view.html.twig' with {'filteringForm': carsFilterForm} %}
+    {% if cars is defined %}
+        {% if cars|length == 0 %}
+            <span>No results</span>
+        {% else %}
+            <div class="row">
+                {% for car in cars %}
+                    {% include 'front/_partials/_boxes/car.html.twig' %}
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% include 'front/_common/_pager.html.twig' %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

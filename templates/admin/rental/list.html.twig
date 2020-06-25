@@ -1,0 +1,105 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %} Rentals {% endblock %}
+
+{% block body %}
+    {% include 'admin/_common/_filtering_form_view.html.twig' with {'filteringForm': rentalsFilterForm} %}
+
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title pull-left">Models</h4>
+            <h5 class="cart-title pull-right">Total count: {{ pager.nbResults }}</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Salon
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Car
+                    </th>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Start date
+                    </th>
+                    <th>
+                        End date
+                    </th>
+                    <th>
+                        Created at
+                    </th>
+                    <th>
+                        Updated at
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Payed
+                    </th>
+                    </thead>
+                    <tbody>
+                    {% for rental in rentals %}
+                        <tr>
+                            <td>
+                                {{ rental.id }}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_salons_update', {'id' : rental.car.salon.id}) }}">
+                                    {{ rental.car.salon.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ rental.car.salon.city.name }}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_cars_update', {'id' : rental.car.id}) }}">
+                                    {{ rental.car.model.brand.name }} {{ rental.car.model.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ rental.user.firstName }} {{ rental.user.lastName }} - {{ rental.user.email }}
+                            </td>
+                            <td>
+                                {{ rental.startDate.format('d.m.Y.') }}
+                            </td>
+                            <td>
+                                {{ rental.endDate.format('d.m.Y.') }}
+                            </td>
+                            <td>
+                                {{ rental.createdAt.format('d.m.Y. H:i:s') }}
+                            </td>
+                            <td>
+                                {{ rental.updatedAt.format('d.m.Y. H:i:s') }}
+                            </td>
+                            <td>
+                                {{ rental.price }} $
+                            </td>
+                            <td>
+                                {{ (rental.payed) ? 'Yes' : 'No' }}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_rentals_update', {'id': rental.id}) }}"><i class="material-icons">edit</i></a>
+                            </td>
+                            <td>
+                                <a href="#" data-href="{{ path('admin_rentals_delete', {'id': rental.id}) }}" data-toggle="modal" data-target="#confirm-delete"><i class="material-icons">close</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% include 'admin/_common/_pager.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

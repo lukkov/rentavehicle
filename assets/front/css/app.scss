@@ -1,0 +1,52 @@
+@import "~bootstrap";
+@import "~font-awesome";
+@import "~owl.carousel";
+@import "./carrent-master/style.css";
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker3.css";
+
+.ftco-cover-1.innerpage, .ftco-cover-1.innerpage .container > .row {
+    min-height: 200px;
+    max-height: 300px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+.btn-profile {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.app-box {
+    margin-bottom: 20px !important;
+}
+
+.car-show-features {
+    font-size: 15px;
+    color:red;
+    font-weight: bold;
+}
+
+.car-price {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.car-info tr td:first-child {
+    font-weight: bold;
+}
+
+.central-content {
+    min-height: 500px;
+}
+
+.trip-form {
+    padding: 20px 30px;
+}
+
+.salon-show-heading {
+    margin:10px 0 30px 0;
+    text-decoration: underline;
+}

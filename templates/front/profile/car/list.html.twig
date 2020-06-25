@@ -1,0 +1,58 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block body %}
+    {% include 'front/profile/_provile_navbar.html.twig' %}
+    {% include 'front/_common/_filtering_form_view.html.twig' with {'filteringForm': carsFilterForm, 'createUrl' : path('profile_cars_create')} %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    Salon
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Created at
+                </th>
+                <th>
+                    Updated at
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>
+                        {{ car.salon.name }}
+                    </td>
+                    <td>
+                        {{ car.model.brand.name }} {{ car.model.name }}
+                    </td>
+                    <td>
+                        <img src="{{ upload_asset(car.image.name) | imagine_filter('cars_thumb_100_100') }}" />
+                    </td>
+                    <td>
+                        {{ car.createdAt.format('d.m.Y. H:i:s') }}
+                    </td>
+                    <td>
+                        {{ car.updatedAt.format('d.m.Y. H:i:s')}}
+                    </td>
+                    <td>
+                        <a href="{{ path('profile_cars_update', {'id': car.id}) }}">edit</a>
+                    </td>
+                    <td>
+                        <a href="#" data-href="{{ path('profile_cars_delete', {'id': car.id}) }}" data-toggle="modal" data-target="#profile-confirm-delete">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'front/profile/_confirm_delete_window.html.twig' %}
+        {% include 'front/_common/_pager.html.twig' %}
+    </div>
+{% endblock %}

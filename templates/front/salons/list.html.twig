@@ -1,0 +1,18 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block title %} Salons {% endblock %}
+
+{% block body %}
+    {% include 'front/_common/_filtering_form_view.html.twig' with {'filteringForm': salonsFilterForm} %}
+    {% if salons is defined %}
+        {% if salons|length == 0 %}
+            <span>No results</span>
+        {% else %}
+            <div class="row">
+                {% for salon in salons %}
+                    {% include 'front/_partials/_boxes/salon.html.twig' %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

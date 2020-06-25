@@ -1,0 +1,22 @@
+<nav class="profile-navbar navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profile_update', {'id': app.user.id}) }}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profile_my_rentals_list') }}">My Rentals</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profile_salons_list') }}">Salons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profile_cars_list') }}">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('profile_rentals_list') }}">Rentals</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+<hr/>

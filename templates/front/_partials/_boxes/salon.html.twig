@@ -1,0 +1,27 @@
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="item-1">
+        <a href="{{ path('salons_show', {'id': salon.id}) }}"><img src="{{ upload_asset(salon.image.name) | imagine_filter('salon_box') }}" alt="Image" class="img-fluid"></a>
+        <div class="item-1-contents">
+            <div class="text-center">
+                <h3><a href="{{ path('salons_show', {'id': salon.id}) }}">{{ salon.name }}</a></h3>
+            </div>
+            <ul class="specs">
+                <li>
+                    <span>City</span>
+                    <span class="spec">{{ salon.city.name }}</span>
+                </li>
+                <li>
+                    <span>Phone number</span>
+                    <span class="spec">{{ salon.phoneNumber }}</span>
+                </li>
+                <li>
+                    <span>Address</span>
+                    <span class="spec">{{ salon.address }}</span>
+                </li>
+            </ul>
+            <div class="d-flex action">
+                <a href="{{ path('salons_show', {'id' : salon.id}) }}" class="btn btn-primary">Visit now</a>
+            </div>
+        </div>
+    </div>
+</div>

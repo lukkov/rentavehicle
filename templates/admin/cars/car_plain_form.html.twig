@@ -1,0 +1,25 @@
+<div class="col-lg-5 col-md-6 col-sm-12">
+    {{ form_start(form) }}
+    <div class="box app-box">
+        {% if form.vars.filename %}
+            <img src="{{ upload_asset(form.vars.filename) | imagine_filter('admin_car_cover') }}" />
+        {% endif %}
+        <div class="box-header with-border hide-empty">{% block form_header -%}{%- endblock form_header %}</div>
+
+        <div class="box-body">
+            {{ form_errors(form) }}
+            {{ form_row(form.salon) }}
+            {{ form_row(form.brand) }}
+            {% if form.model is defined %}
+                {{ form_row(form.model) }}
+            {% endif %}
+            {{ form_rest(form) }}
+        </div>
+        <div class="box-footer">
+            {% if not form.vars.disabled %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            {% endif %}
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>

@@ -1,0 +1,10 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block body %}
+        <div class="col-lg-5 col-md-6 col-sm-12">
+                {% if form.vars.filename %}
+                        <img src="{{ upload_asset(form.vars.filename) | imagine_filter('admin_salon_cover') }}" />
+                {% endif %}
+        </div>
+        {{ include('admin/_common/plain_form.html.twig') }}
+{% endblock %}

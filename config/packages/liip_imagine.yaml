@@ -1,0 +1,32 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    filter_sets:
+        cache: ~
+        cars_thumb_100_100:
+            filters:
+                thumbnail: { size: [ 100, 100 ], mode: outbound }
+        featured_car_box:
+            filters:
+                thumbnail: { size: [ 400, 240 ], mode: outbound }
+        car_box:
+            filters:
+                thumbnail: { size: [ 350, 220 ], mode: outbound }
+        car_show:
+            filters:
+                thumbnail: { size: [ 600, 350 ], mode: outbound }
+        admin_car_cover:
+            filters:
+                thumbnail: { size: [ 600, 350 ], mode: outbound }
+        admin_salon_cover:
+            filters:
+                thumbnail: { size: [ 600, 350 ], mode: outbound }
+        salon_thumb_100_100:
+            filters:
+                thumbnail: { size: [ 100, 100 ], mode: outbound }
+        salon_box:
+            filters:
+                thumbnail: { size: [ 350, 220 ], mode: outbound }
+        salon_show:
+            filters:
+                thumbnail: { size: [ 1200, 350 ], mode: outbound }

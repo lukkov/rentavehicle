@@ -1,0 +1,59 @@
+<div class="sidebar" data-color="purple" data-background-color="white">
+    <div class="logo">
+        <a href="{{ path('index') }}" class="simple-text logo-normal">
+            rentavehicle
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav" id="adminSidebarMenu" data-current-url="{{ '' }}">
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_brands_list') }}">
+                    <i class="material-icons">star</i>
+                    <p>Brands</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_models_list') }}">
+                    <i class="material-icons">star_border</i>
+                    <p>Models</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_cities_list') }}">
+                    <i class="material-icons">location_city</i>
+                    <p>Cities</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_users_list') }}">
+                    <i class="material-icons">person</i>
+                    <p>Users</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_salons_list') }}">
+                    <i class="material-icons">house</i>
+                    <p>Salons</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_features_list') }}">
+                    <i class="material-icons">build</i>
+                    <p>Features</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_cars_list') }}">
+                    <i class="material-icons">directions_cars</i>
+                    <p>Cars</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_rentals_list') }}">
+                    <i class="material-icons">calendar_today</i>
+                    <p>Rentals</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

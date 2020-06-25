@@ -1,0 +1,60 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block title %} Cars - {{ car.model.brand.name }} {{ car.model.name }} {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{{ upload_asset(car.image.name) | imagine_filter('car_show') }}" alt="Image" class="img-fluid">
+            <div class="car-price">
+                <span>${{ car.pricePerDay }} / day</span>
+            </div>
+            <table class="table table-hover car-info">
+                <tbody>
+                <tr>
+                    <td>Salon:</td>
+                    <td>{{ car.salon.name }} - {{ car.salon.city.name }}</td>
+                </tr>
+                <tr>
+                    <td>Model:</td>
+                    <td>{{ car.model.brand.name }} {{ car.model.name }}</td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>{{ car.enumValue('type') }}</td>
+                </tr>
+                <tr>
+                    <td>Color:</td>
+                    <td>{{ car.enumValue('color') }}</td>
+                </tr>
+                <tr>
+                    <td>Fuel:</td>
+                    <td>{{ car.enumValue('fuel') }}</td>
+                </tr>
+                <tr>
+                    <td>Transmission:</td>
+                    <td>{{ car.enumValue('transmission') }}</td>
+                </tr>
+                <tr>
+                    <td>Number of doors:</td>
+                    <td>{{ car.enumValue('number-of-doors') }}</td>
+                </tr>
+                <tr>
+                    <td>Number of seats:</td>
+                    <td>{{ car.enumValue('number-of-seats') }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6">
+            {% include 'front/_common/_plain_form.html.twig' with {'form': rentalForm, 'onlyLoggedUsers': true, customSubmitLabel: 'Rent' } %}
+            <div>
+                <ul class="list-group">
+                    {% for feature in car.features %}
+                        <li class="list-group-item">{{ feature.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block body %}
+    {% include 'front/profile/_provile_navbar.html.twig' %}
+        {% include 'front/_common/_filtering_form_view.html.twig' with {'filteringForm': rentalsFilterForm } %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    Salon
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Car
+                </th>
+                <th>
+                    Start date
+                </th>
+                <th>
+                    End date
+                </th>
+                <th>
+                    Created at
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Payed
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for rental in rentals %}
+                <tr>
+                    <td>
+                        {{ rental.car.salon.name }}
+                    </td>
+                    <td>
+                        {{ rental.car.salon.city.name }}
+                    </td>
+                    <td>
+                        {{ rental.car.model.brand.name }} {{ rental.car.model.name }}
+                    </td>
+                    <td>
+                        {{ rental.startDate.format('d.m.Y.') }}
+                    </td>
+                    <td>
+                        {{ rental.endDate.format('d.m.Y.') }}
+                    </td>
+                    <td>
+                        {{ rental.createdAt.format('d.m.Y. H:i:s') }}
+                    </td>
+                    <td>
+                        {{ rental.price }} $
+                    </td>
+                    <td>
+                        {{ (rental.payed) ? 'Yes' : 'No' }}
+                    </td>
+                    <td>
+                        <a href="{{ path('profile_rentals_update', {'id': rental.id}) }}">edit</a>
+                    </td>
+                    <td>
+                        <a href="#" data-href="{{ path('profile_rentals_delete', {'id': rental.id}) }}" data-toggle="modal" data-target="#profile-confirm-delete">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% include 'front/profile/_confirm_delete_window.html.twig' %}
+        {% include 'front/_common/_pager.html.twig' %}
+    </div>
+{% endblock %}

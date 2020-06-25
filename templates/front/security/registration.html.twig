@@ -1,0 +1,12 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block body %}
+        {% include 'front/_common/_plain_form.html.twig' with { customSubmitLabel : 'Register'} %}
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-lg-5 col-md-8 col-sm-12">
+                Already have account? <a href="{{ path('login') }}">Login here.</a>
+            </div>
+        </div>
+{% endblock %}

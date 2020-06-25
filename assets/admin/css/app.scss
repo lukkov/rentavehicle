@@ -1,0 +1,67 @@
+@import "~bootstrap";
+@import "~font-awesome";
+
+@import "material-dashboard/variables";
+@import "material-dashboard/mixins";
+@import "material-dashboard/core-bootstrap";
+
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker3.css";
+
+// Core Components
+@import "material-dashboard/buttons";
+@import "material-dashboard/forms";
+@import "material-dashboard/input-group";
+@import "material-dashboard/images";
+@import "material-dashboard/navbar";
+@import "material-dashboard/alerts";
+@import "material-dashboard/headers";
+@import "material-dashboard/type";
+@import "material-dashboard/tabs";
+@import "material-dashboard/tooltip";
+@import "material-dashboard/popover";
+@import "material-dashboard/dropdown";
+@import "material-dashboard/togglebutton";
+@import "material-dashboard/ripples";
+@import "material-dashboard/footers";
+@import "material-dashboard/sidebar-and-main-panel";
+@import "material-dashboard/fixed-plugin";
+@import "material-dashboard/tables";
+@import "material-dashboard/misc";
+@import "material-dashboard/social-buttons";
+
+@import "material-dashboard/cards";
+@import "material-dashboard/cards/card-stats";
+@import "material-dashboard/cards/card-profile";
+@import "material-dashboard/cards/card-plain";
+
+//plugin scss
+@import "material-dashboard/plugins/animate";
+@import "material-dashboard/plugins/chartist";
+@import "material-dashboard/plugins/perfect-scrollbar";
+
+@import "material-dashboard/responsive";
+
+.page-link {
+  color:#9c27b0;
+}
+
+.page-item.active {
+  .page-link {
+    color: #ffffff;
+    background-color: #9c27b0;
+  }
+}
+
+.form-control:focus {
+  border-color: #ced4da;
+  box-shadow: inset 0 1px 1px #9c27b0, 0 0 8px #9c27b0;
+}
+
+.form-check, label {
+  font-weight: 600;
+  font-size:15px;
+}
+
+img {
+  border-radius: 10px;
+}

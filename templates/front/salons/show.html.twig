@@ -1,0 +1,58 @@
+{% extends 'front/base_headline_template.html.twig' %}
+
+{% block title %} Salon - {{ salon.name}} {% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <img src="{{ upload_asset(salon.image.name) | imagine_filter('salon_show') }}" alt="Image" class="img-fluid">
+    </div>
+    <div class="row justify-content-center">
+        <h3 class="salon-show-heading">{{ salon.name }}</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <td>City:</td>
+                    <td>{{ salon.city.name }}</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>{{ salon.address }}</td>
+                </tr>
+                <tr>
+                    <td>Phone number:</td>
+                    <td>{{ salon.phoneNumber }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{ salon.email }}</td>
+                </tr>
+                <tr>
+                    <td>Owner:</td>
+                    <td>{{ salon.owner.firstName }} {{ salon.owner.lastName }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-8">
+            {{ salon.description|raw }}
+        </div>
+    </div>
+    {% if salonCars is defined %}
+        {% if salonCars|length != 0 %}
+            <div class="row justify-content-center">
+                <h4 class="salon-show-heading">Cars:</h4>
+            </div>
+            <div class="row">
+                {% for car in salonCars %}
+                    {% include 'front/_partials/_boxes/car.html.twig' %}
+                {% endfor %}
+            </div>
+            <div class="row justify-content-center">
+                {% include 'front/_common/_pager.html.twig' %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

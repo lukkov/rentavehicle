@@ -1,0 +1,38 @@
+<div class="item-1">
+    <a href="{{ path('cars_show', {'id': car.id}) }}"><img src="{{ upload_asset(car.image.name) | imagine_filter('featured_car_box') }}" alt="Image" class="img-fluid"></a>
+    <div class="item-1-contents">
+        <div class="text-center">
+            <h3><a href="{{ path('cars_show', {'id': car.id}) }}">{{ car.model.brand.name }} {{ car.model.name }}</a></h3>
+            <div class="rent-price"><span>${{ car.pricePerDay }}/</span>day</div>
+        </div>
+        <ul class="specs">
+            <li>
+                <span>Type</span>
+                <span class="spec">{{ car.enumValue('type') }}</span>
+            </li>
+            <li>
+                <span>Doors</span>
+                <span class="spec">{{ car.enumValue('number-of-doors') }}</span>
+            </li>
+            <li>
+                <span>Seats</span>
+                <span class="spec">{{ car.enumValue('number-of-seats') }}</span>
+            </li>
+            <li>
+                <span>Transmission</span>
+                <span class="spec">{{ car.enumValue('transmission') }}</span>
+            </li>
+            <li>
+                <span>Color</span>
+                <span class="spec">{{ car.enumValue('color') }}</span>
+            </li>
+            <li>
+                <span>City</span>
+                <span class="spec">{{ car.salon.city.name }}</span>
+            </li>
+        </ul>
+        <div class="d-flex action">
+            <a href="{{ path('cars_show', {'id' : car.id }) }}" class="btn btn-primary">Rent Now</a>
+        </div>
+    </div>
+</div>

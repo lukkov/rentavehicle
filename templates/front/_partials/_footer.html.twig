@@ -1,0 +1,65 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <h2 class="footer-heading mb-4">About Us</h2>
+                <p>At rentavehicle.rs everything we do is about giving you the freedom to discover more. We’ll move mountains to find you the right rental car, and bring you a smooth, hassle-free experience from start to finish. With rentavehicle, all cars are on one place. Choose date, city, car and enjoy in exploring new places! </p>
+            </div>
+            <div class="col-lg-8 ml-auto">
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-3">
+                        <h2 class="footer-heading mb-4">Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ path('index') }}">Home</a></li>
+                            <li><a href="{{ path('salon_list') }}">Salons</a></li>
+                            <li><a href="{{ path('cars_list') }}">Cars</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                            {% if not is_granted('ROLE_USER') %}
+                                <li><a href="{{ path('login') }}">Sign In</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        {% if is_granted('ROLE_USER') %}
+                            <h2 class="footer-heading mb-4">Profile</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ path('profile_update', {'id' : app.user.id}) }}">Profile</a></li>
+                                <li><a href="{{ path('profile_rentals_list') }}">My rentals</a></li>
+                                <li><a href="{{ path('profile_salons_list') }}">Salons</a></li>
+                                <li><a href="{{ path('profile_cars_list') }}">Cars</a></li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-3">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <h2 class="footer-heading mb-4">Admin</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ path('admin_brands_list') }}">Brands</a></li>
+                                <li><a href="{{ path('admin_models_list') }}">Models</a></li>
+                                <li><a href="{{ path('admin_cities_list') }}">Cities</a></li>
+                                <li><a href="{{ path('admin_users_list') }}">Users</a></li>
+                                <li><a href="{{ path('admin_salons_list') }}">Salons</a></li>
+                                <li><a href="{{ path('admin_features_list') }}">Features</a></li>
+                                <li><a href="{{ path('admin_cars_list') }}">Cars</a></li>
+                                <li><a href="{{ path('admin_rentals_list') }}">Rentals</a></li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+                <div class="border-top pt-5">
+                    <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Made by <a href="https://github.com/lukkov" target="_blank">lukkov</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>

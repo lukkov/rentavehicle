@@ -1,0 +1,33 @@
+<div class="site-section pt-0 pb-0 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(quickSearchForm) }}
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-6">
+                            <h3 class="m-0">Find your perfect car</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            {{ form_widget(quickSearchForm.city) }}
+                            <label for="cf-1">{{ form_label(quickSearchForm.city) }}</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            {{ form_widget(quickSearchForm.availableFrom) }}
+                            <label for="cf-3">{{ form_label(quickSearchForm.availableFrom) }}</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            {{ form_widget(quickSearchForm.availableTo) }}
+                            <label for="cf-4">{{ form_label(quickSearchForm.availableTo) }}</label>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                    </div>
+                {% do quickSearchForm.setRendered %}
+                {{ form_end(quickSearchForm, {'render_rest': false}) }}
+            </div>
+        </div>
+    </div>
+</div>

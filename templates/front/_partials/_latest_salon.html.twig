@@ -1,0 +1,42 @@
+<div class="ftco-blocks-cover-1">
+    <div class="ftco-cover-1 overlay" style="background-image: url('{{ asset('build/_images/hero_1.jpg') }}')">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="feature-car-rent-box-1">
+                        <h3>Latest car salon</h3>
+                        <ul class="list-unstyled">
+                            <li>
+                                <span>Name</span>
+                                <span class="spec">{{ latestSalon.name }}</span>
+                            </li>
+                            <li>
+                                <span>Owner</span>
+                                <span class="spec">{{ latestSalon.owner.firstName }} {{ latestSalon.owner.lastName }}</span>
+                            </li>
+                            <li>
+                                <span>Address</span>
+                                <span class="spec">{{ latestSalon.address }}</span>
+                            </li>
+                            <li>
+                                <span>City</span>
+                                <span class="spec">{{ latestSalon.city.name }}</span>
+                            </li>
+                            <li>
+                                <span>Phone number</span>
+                                <span class="spec">{{ latestSalon.phoneNumber }}</span>
+                            </li>
+                            <li>
+                                <span>Email</span>
+                                <span class="spec">{{ latestSalon.email }}</span>
+                            </li>
+                        </ul>
+                        <div class="d-flex align-items-center bg-light p-3">
+                            <a href="{{ path('salons_show', {'id': latestSalon.id}) }}" class="ml-auto btn btn-primary">Visit now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

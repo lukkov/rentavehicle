@@ -1,0 +1,14 @@
+{% extends 'front/base_index_template.html.twig' %}
+
+{% block title %} Rentavehicle {% endblock %}
+
+{% block body %}
+
+    {% include 'front/_partials/_latest_salon.html.twig' %}
+    {% include 'front/_partials/_quick_search.html.twig' %}
+
+    {% if featuredCars is defined %}
+        {% include 'front/_partials/_featured_cars.html.twig' %}
+    {% endif %}
+
+{% endblock %}
